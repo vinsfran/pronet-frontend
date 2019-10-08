@@ -1,0 +1,105 @@
+<app-content-header
+  [titulo]="titulo"
+  [lista]="lista">
+</app-content-header>
+<section class="content">
+
+  <div class="box">
+    <div class="box-body">
+      <div class="dataTables_wrapper form-inline dt-bootstrap">
+        <div class="row" style="padding-bottom: 5px">
+          <div class="col-sm-6">
+            <button class="btn btn-primary float-left"
+                    [routerLink]="['/servicios/form']"
+                    title="Agregar nuevo"
+                    style="margin-right: 5px">
+              <i class="fa fa-plus"></i>
+              Nuevo Servicio
+            </button>
+          </div>
+          <div class="col-sm-6">
+            <div id="example1_filter" class="dataTables_filter">
+              <label>Buscar:
+                <input class="form-control input-sm"
+                       placeholder=""
+                       aria-controls="example1"
+                       type="search"
+                       [(ngModel)]="inputDeBuscar"
+                       (keyup.enter)="buscar()">
+              </label>
+            </div>
+          </div>
+        </div>
+        <!--        {{inputDeBuscar | json}}-->
+        <div class="row">
+          <div class="col-sm-12">
+            <table class="table table-bordered table-striped dataTable" *ngIf="servicios?.length > 0">
+              <thead>
+              <tr role="row">
+                <th (click)="sortingPage('id')"
+                    [ngClass]="setClasses('id')"
+                    tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-sort="ascending"
+                    aria-label="Id: activate to sort column descending">Id
+                </th>
+                <th (click)="sortingPage('descripcion')"
+                    [ngClass]="setClasses('descripcion')"
+                    tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-sort="ascending"
+                    aria-label="Descripción: activate to sort column descending">Descripción
+                </th>
+                <th (click)="sortingPage('comision')"
+                    [ngClass]="setClasses('comision')"
+                    tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-sort="ascending"
+                    aria-label="Comisión: activate to sort column descending">Comisión
+                </th>
+                <th (click)="sortingPage('estado')"
+                    [ngClass]="setClasses('estado')"
+                    tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-sort="ascending"
+                    aria-label="Estado: activate to sort column descending">Estado
+                </th>
+
+                <th width="20%">
+                  Acciones
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="odd" role="row" *ngFor="let servicio of servicios; let i=index">
+                <td>{{servicio.id}}</td>
+                <td>{{servicio.descripcion}}</td>
+                <td>{{servicio.comision}}</td>
+                <td>{{servicio.estado}}</td>
+                <td class="text-right">
+                  <button [routerLink]="['/servicios/form', servicio.id]"
+                          type="button"
+                          class="btn btn-sm btn-warning"
+                          title="Editar"
+                          style="margin-right: 5px">
+                    <i class="fa fa-pencil"></i>
+                  </button>
+                  <button type="button"
+                          class="btn btn-sm btn-danger"
+                          title="Eliminar"
+                          (click)='delete(servicio)'
+                          style="margin-right: 5px">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <app-pagination [page]="page" (paginationEvent)="changePage($event)"></app-pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,98 @@
+<app-content-header
+  [titulo]="titulo"
+  [lista]="lista">
+</app-content-header>
+<section class="content">
+
+  <div class="box">
+    <div class="box-body">
+      <div class="dataTables_wrapper form-inline dt-bootstrap">
+        <div class="row" style="padding-bottom: 5px">
+          <div class="col-sm-6">
+            <button class="btn btn-primary float-left"
+                    [routerLink]="['/clientes/form']"
+                    title="Agregar nuevo"
+                    style="margin-right: 5px">
+              <i class="fa fa-plus"></i>
+              Nuevo Cliente
+            </button>
+          </div>
+          <div class="col-sm-6">
+            <div id="example1_filter" class="dataTables_filter">
+              <label>Buscar:
+                <input class="form-control input-sm" placeholder="" aria-controls="example1" type="search">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <table class="table table-bordered table-striped dataTable" *ngIf="clientes?.length > 0">
+              <thead>
+              <tr role="row">
+                <th (click)="sortingPage('id')"
+                    [ngClass]="setClasses('id')"
+                    tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-sort="ascending"
+                    aria-label="ID: activate to sort column descending">ID
+                </th>
+                <th (click)="sortingPage('nombreCompleto')"
+                    [ngClass]="setClasses('nombreCompleto')" tabindex="0" aria-controls="example1" rowspan="1"
+                    colspan="1"
+                    aria-label="Nombre Completo: activate to sort column ascending">Nombre Completo
+                </th>
+                <th (click)="sortingPage('numeroDocumento')"
+                    [ngClass]="setClasses('numeroDocumento')" tabindex="0" aria-controls="example1" rowspan="1"
+                    colspan="1"
+                    aria-label="Numero de Documento: activate to sort column ascending">Numero de Documento
+                </th>
+                <th (click)="sortingPage('tipoDocumento')"
+                    [ngClass]="setClasses('tipoDocumento')" tabindex="0" aria-controls="example1" rowspan="1"
+                    colspan="1"
+                    aria-label="Tipo de Documento: activate to sort column ascending">Tipo Documento
+                </th>
+                <th width="20%">
+                  Acciones
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="odd" role="row" *ngFor="let cliente of clientes; let i=index">
+                <td>{{cliente.id}}</td>
+                <td>{{cliente.nombre_completo}}</td>
+                <td>{{cliente.numero_documento }}</td>
+                <td>{{cliente.tipo_documento}}</td>
+                <!--                <td>{{ cliente.createAt | date:"dd/MM/yyyy" }}</td>-->
+                <td class="text-right">
+                  <button [routerLink]="['/clientes/form', cliente.id]"
+                          type="button"
+                          class="btn btn-sm btn-light"
+                          title="Editar"
+                          style="margin-right: 5px">
+                    <i class="fa fa-pencil"></i>
+                    Editar
+                  </button>
+                  <button type="button"
+                          class="btn btn-sm btn-danger"
+                          title="Eliminar"
+                          (click)='delete(cliente)'
+                          style="margin-right: 5px">
+                    <i class="fa fa-eye"></i>
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <app-pagination [page]="page" (paginationEvent)="changePage($event)"></app-pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
