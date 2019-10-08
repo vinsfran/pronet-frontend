@@ -48,6 +48,12 @@
                     aria-sort="ascending"
                     aria-label="Factura: activate to sort column descending">Factura
                 </th>
+                <th (click)="sortingPage('importe')"
+                    [ngClass]="setClasses('importe')"
+                    tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-sort="ascending"
+                    aria-label="Importe: activate to sort column descending">Importe
+                </th>
                 <th (click)="sortingPage('vencimiento')"
                     [ngClass]="setClasses('vencimiento')"
                     tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
@@ -78,6 +84,7 @@
               <tr class="odd" role="row" *ngFor="let deuda of deudas; let i=index">
                 <td>{{deuda.servicio_id}}</td>
                 <td>{{deuda.factura}}</td>
+                <td>{{deuda.importe}}</td>
                 <td>{{deuda.vencimiento | date:"dd/MM/yyyy"}}</td>
                 <td>{{deuda.estado}}</td>
                 <td>{{deuda.cliente.nombre_completo}}</td>
