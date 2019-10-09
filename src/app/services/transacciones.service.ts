@@ -29,6 +29,13 @@ export class TransaccionesService {
       this.urlEndPoint + `/page?page=${page}&size=${size}&sort=${campo},${orden}`, {headers: this.httpHeaders});
   }
 
+  getTransaccionesPantalla2(fechaDesde: string, fechaHasta: string, page: number, size: number, campo: string, orden: string) {
+    this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.get<ResponseBasePageModel>(
+      this.urlEndPoint + `/pantalla2?fecha_desde=${fechaDesde}&fecha_hasta=${fechaHasta}&page=${page}&size=${size}&sort=${campo},${orden}`,
+      {headers: this.httpHeaders});
+  }
+
   create(transaccion: TransaccionesModel): Observable<TransaccionesModel> {
     return this.http.post<TransaccionesModel>(this.urlEndPoint, transaccion).pipe(
       map((response: any) => response.transaccion as TransaccionesModel),

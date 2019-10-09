@@ -27,6 +27,16 @@ const routes: Routes = [
         path: '',
         loadChildren: '../modulos/transacciones/transacciones.module#TransaccionesModule'
       },
+      // Ruta para Transacciones
+      {
+        path: '',
+        loadChildren: '../modulos/pantalla2/pantalla2.module#Pantalla2Module'
+      },
+      // Ruta para Dashboard
+      {
+        path: '',
+        loadChildren: '../modulos/dashboard/dashboard.module#DashboardModule'
+      },
     ]
 
   }
