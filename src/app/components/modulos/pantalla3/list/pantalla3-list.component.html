@@ -39,42 +39,37 @@
         </div>
         <div class="row">
           <div class="col-sm-12">
-            <table class="table table-bordered table-striped dataTable" *ngIf="pantalla2Models?.length > 0">
+            <table class="table table-bordered table-striped dataTable"
+                   *ngIf="pantalla3DataModel.transacciones?.length > 0">
               <thead>
               <tr role="row">
                 <th tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                    aria-label="Fecha: activate to sort column ascending">Fecha
+                    aria-label="Servicio: activate to sort column ascending">Servicio
                 </th>
                 <th tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                     aria-sort="ascending"
-                    aria-label="Servicio: activate to sort column descending">Servicio
+                    aria-label="Importe: activate to sort column descending">Importe
                 </th>
                 <th tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                    aria-label="Factura: activate to sort column ascending">Factura
+                    aria-label="Porcentaje: activate to sort column ascending">Porcentaje
                 </th>
-                <th tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                    aria-label="Cliente: activate to sort column ascending">Cliente
-                </th>
-                <th tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                    aria-label="Total: activate to sort column ascending">Total
-                </th>
+
               </tr>
               </thead>
               <tbody>
-              <tr class="odd" role="row" *ngFor="let pantalla2Model of pantalla2Models; let i=index">
-                <td>{{pantalla2Model.fecha | date:"dd/MM/yyyy"}}</td>
-                <td>{{pantalla2Model.servicio}}</td>
-                <td>{{pantalla2Model.factura}}</td>
-                <td>{{pantalla2Model.cliente}}</td>
-                <td class="text-right">{{pantalla2Model.total | number:'1.0'}}</td>
+              <tr class="odd" role="row" *ngFor="let transaccion of pantalla3DataModel.transacciones; let i=index">
+                <td>{{transaccion.descripcion}}</td>
+                <td class="text-right">{{transaccion.importe | number:'1.0'}}</td>
+                <td class="text-right">{{transaccion.porcentaje | number:'1.2-2'}} %</td>
               </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <app-pagination [page]="page" (paginationEvent)="changePage($event)"></app-pagination>
+            <br/>
+            <div class="form-group mb10 clearfix" style="padding-right: 10px">
+              <label for="fechaDesde" style="padding-right: 10px">Total de Importe del
+                Periodo: {{pantalla3DataModel.importe_total | number:'1.0'}} </label>
+            </div>
+
           </div>
         </div>
       </div>

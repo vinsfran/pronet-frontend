@@ -5,6 +5,7 @@ import {catchError, map} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {TransaccionesModel} from '../components/modulos/transacciones/transacciones.model';
 import {ResponseBasePageModel} from '../components/modulos/widgets/responseBasePage.model';
+import {ResponseBasePantall3Model} from '../components/modulos/pantalla3/responseBasePantall3.model';
 
 
 @Injectable()
@@ -33,6 +34,13 @@ export class TransaccionesService {
     this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.get<ResponseBasePageModel>(
       this.urlEndPoint + `/pantalla2?fecha_desde=${fechaDesde}&fecha_hasta=${fechaHasta}&page=${page}&size=${size}&sort=${campo},${orden}`,
+      {headers: this.httpHeaders});
+  }
+
+  getTransaccionesPantalla3(fechaDesde: string, fechaHasta: string) {
+    this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.get<ResponseBasePantall3Model>(
+      this.urlEndPoint + `/pantalla3?fecha_desde=${fechaDesde}&fecha_hasta=${fechaHasta}`,
       {headers: this.httpHeaders});
   }
 

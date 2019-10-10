@@ -27,10 +27,15 @@ const routes: Routes = [
         path: '',
         loadChildren: '../modulos/transacciones/transacciones.module#TransaccionesModule'
       },
-      // Ruta para Transacciones
+      // Ruta para Pantalla2
       {
         path: '',
         loadChildren: '../modulos/pantalla2/pantalla2.module#Pantalla2Module'
+      },
+      // Ruta para Pantalla3
+      {
+        path: '',
+        loadChildren: '../modulos/pantalla3/pantalla3.module#Pantalla3Module'
       },
       // Ruta para Dashboard
       {

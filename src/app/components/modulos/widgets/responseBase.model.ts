@@ -1,5 +1,5 @@
 export class ResponseBaseModel {
-  code: number;
-  status: boolean;
-  message: string;
+  timestamp: string;
+  status: number;
+  message: any;
 }
