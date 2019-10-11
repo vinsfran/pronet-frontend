@@ -5,6 +5,8 @@ import {catchError, map, tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {ClienteModel} from '../components/modulos/clientes/cliente.model';
 import {ResponseBasePageModel} from '../components/modulos/widgets/responseBasePage.model';
+import {ResponseBaseServiciosListModel} from '../components/modulos/servicios/responseBaseServiciosList.model';
+import {ResponseBaseClientesTiposDocumentosModel} from '../components/modulos/clientes/responseBaseClientesTiposDocumentos.model';
 
 
 @Injectable()
@@ -27,6 +29,12 @@ export class ClientesService {
     this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.get<ResponseBasePageModel>(
       this.urlEndPoint + `/page?page=${page}&size=${size}&sort=${campo},${orden}`, {headers: this.httpHeaders});
+  }
+
+  getTiposDocumentos() {
+    this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.get<ResponseBaseClientesTiposDocumentosModel>(
+      this.urlEndPoint + `/tipos-documentos`, {headers: this.httpHeaders});
   }
 
   create(cliente: ClienteModel): Observable<ClienteModel> {

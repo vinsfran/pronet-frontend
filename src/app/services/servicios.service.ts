@@ -5,6 +5,7 @@ import {catchError, map, tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {ServiciosModel} from '../components/modulos/servicios/servicios.model';
 import {ResponseBasePageModel} from '../components/modulos/widgets/responseBasePage.model';
+import {ResponseBaseServiciosListModel} from '../components/modulos/servicios/responseBaseServiciosList.model';
 
 
 @Injectable()
@@ -27,6 +28,12 @@ export class ServiciosService {
     this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.get<ResponseBasePageModel>(
       this.urlEndPoint + `/page?page=${page}&size=${size}&sort=${campo},${orden}`, {headers: this.httpHeaders});
+  }
+
+  getServicios2() {
+    this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.get<ResponseBaseServiciosListModel>(
+      this.urlEndPoint, {headers: this.httpHeaders});
   }
 
   create(servicio: ServiciosModel): Observable<ServiciosModel> {

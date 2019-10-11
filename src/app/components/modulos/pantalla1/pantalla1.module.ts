@@ -4,11 +4,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {ContentHeaderModule} from '../widgets/content-header/content-header.module';
 import {PaginationModule} from '../widgets/pagination/pagination.module';
-import {DeudasRoutingModule} from './deudas-routing.module';
-import {DeudasComponent} from './deudas.component';
-import {DeudasListComponent} from './list/deudas-list.component';
-import {DeudasFormComponent} from './form/deudas-form.component';
+import {Pantalla1RoutingModule} from './pantalla1-routing.module';
+import {Pantalla1Component} from './pantalla1.component';
+import {Pantalla1ListComponent} from './list/pantalla1-list.component';
 import {DeudasService} from '../../../services/deudas.service';
+import {ServiciosService} from '../../../services/servicios.service';
+import {ClientesService} from '../../../services/clientes.service';
 
 @NgModule({
   imports: [
@@ -17,17 +18,18 @@ import {DeudasService} from '../../../services/deudas.service';
     ReactiveFormsModule,
     ContentHeaderModule,
     PaginationModule,
-    DeudasRoutingModule
+    Pantalla1RoutingModule
   ],
   declarations: [
-    DeudasComponent,
-    DeudasFormComponent,
-    DeudasListComponent
+    Pantalla1Component,
+    Pantalla1ListComponent
   ],
   providers: [
-    DeudasService
+    DeudasService,
+    ServiciosService,
+    ClientesService
   ]
 })
 
-export class DeudasModule {
+export class Pantalla1Module {
 }

@@ -41,7 +41,6 @@ export class Pantalla2ListComponent implements OnInit {
   getTransaccionesPantalla2(fechaDesde: string, fechaHasta: string, page: number, size: number, campo: string, orden: string) {
     this.transaccionesService.getTransaccionesPantalla2(fechaDesde, fechaHasta, page, size, campo, orden).subscribe(
       response => {
-        console.log(response);
         this.page = response.page;
         this.pantalla2Models = this.page.content;
       },

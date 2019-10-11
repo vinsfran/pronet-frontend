@@ -1,7 +1,7 @@
 // Creado: 01/04/2019
 // ------------------
 
-// VARIABLES SKIN     
+// VARIABLES SKIN
 // escala de grises
 $white:       #fff;
 $gray-100:    #f8f9fa;
@@ -43,7 +43,7 @@ $light:         $gray-300;
 // //////////////////
 .btn-primary{
   background-color: $primary !important;
-  border-color: darken($color: $primary, $amount: 3) !important; 
+  border-color: darken($color: $primary, $amount: 3) !important;
   text-transform: uppercase;
   &:hover{
     background-color: darken($color: $primary, $amount: 3) !important;
@@ -89,8 +89,8 @@ body{
 a{
   transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s; 
-  -ms-transition-duration: 0.3s; 
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
 }
 label input{
@@ -176,7 +176,7 @@ label input{
         }
       }
     }
-    
+
   }
 
   .isologo{
@@ -223,7 +223,7 @@ label input{
       color: #ffffff;
       background: $green;
       border-left-color: lighten($color: $green, $amount: 8);
-      
+
       .text-success{
         color: lighten($color: $green, $amount: 8);
       }
@@ -314,7 +314,7 @@ label input{
   .box{
     box-shadow: 0 0 1px rgba(0,0,0,.125),0 1px 3px rgba(0,0,0,.2);
   }
-  
+
   .box.box-primary{
     border-top-color: $primary;
   }
@@ -340,24 +340,6 @@ label input{
   }
 }
 // FIN SKIM PARA SIMA
-
-// PAGINA LOGIN
-.login-page{
-  background: url('./assets/images/bg-slide1.png') no-repeat center center fixed !important;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  .login-box-body{
-    border-radius: 3px;
-    -webkit-box-shadow: 0 0 12px 0 rgba(0,0,0,.5);
-    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
-  }
-  .login-logo{
-    color: #FFF;
-  }
-}
-// FIN PAGINA LOGIN
 
 @media (max-width: 767px) {
   .skin-sima .main-header .navbar .dropdown-menu li {

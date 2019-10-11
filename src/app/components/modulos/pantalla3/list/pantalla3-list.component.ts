@@ -22,7 +22,8 @@ export class Pantalla3ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titulo = 'Lista de Transacciones';
+    this.pantalla3DataModel = new Pantalla3DataModel();
+    this.titulo = 'Lista de Transacciones con Porcentaje';
     this.lista = ['Transacciones', this.titulo];
     const d = new Date();
     this.fechaDesde = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + 1;

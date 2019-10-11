@@ -12,7 +12,7 @@ const routes: Routes = [
         path: '',
         loadChildren: '../modulos/clientes/clientes.module#ClientesModule'
       },
-      // Ruta para Prestamos
+      // Ruta para Deudas
       {
         path: '',
         loadChildren: '../modulos/deudas/deudas.module#DeudasModule'
@@ -27,6 +27,11 @@ const routes: Routes = [
         path: '',
         loadChildren: '../modulos/transacciones/transacciones.module#TransaccionesModule'
       },
+      // Ruta para Pantalla1
+      {
+        path: '',
+        loadChildren: '../modulos/pantalla1/pantalla1.module#Pantalla1Module'
+      },
       // Ruta para Pantalla2
       {
         path: '',
@@ -36,11 +41,6 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: '../modulos/pantalla3/pantalla3.module#Pantalla3Module'
-      },
-      // Ruta para Dashboard
-      {
-        path: '',
-        loadChildren: '../modulos/dashboard/dashboard.module#DashboardModule'
       },
     ]
 

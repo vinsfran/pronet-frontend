@@ -19,7 +19,6 @@ export class ClientesListComponent implements OnInit {
   orden: string;
 
   constructor(private clientesService: ClientesService) {
-
   }
 
   ngOnInit() {

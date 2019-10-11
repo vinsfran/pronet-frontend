@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 import {HttpClient, HttpEvent, HttpHeaders, HttpRequest} from '@angular/common/http';
-import {catchError, map, tap} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {DeudasModel} from '../components/modulos/deudas/deudas.model';
 import {ResponseBasePageModel} from '../components/modulos/widgets/responseBasePage.model';
+import {ResponseBasePantall1Model} from '../components/modulos/pantalla1/responseBasePantalla1.model';
+import {Pantalla1RequestModel} from '../components/modulos/pantalla1/pantalla1Request.model';
 
 
 @Injectable()
@@ -29,6 +31,13 @@ export class DeudasService {
       this.urlEndPoint + `/page?page=${page}&size=${size}&sort=${campo},${orden}`, {headers: this.httpHeaders});
   }
 
+  getDeudasPantalla1(estado: string, numeroDocumento: string, tipoDocumento: string, servicio: string) {
+    this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.get<ResponseBasePantall1Model>(
+      this.urlEndPoint + `/pantalla1?estado=${estado}&numero_documento=${numeroDocumento}&tipo_documento=${tipoDocumento}&servicio=${servicio}`,
+      {headers: this.httpHeaders});
+  }
+
   create(prestamo: DeudasModel): Observable<DeudasModel> {
     return this.http.post<DeudasModel>(this.urlEndPoint, prestamo).pipe(
       map((response: any) => response.prestamo as DeudasModel),
@@ -49,6 +58,20 @@ export class DeudasService {
       catchError(e => {
         if (e.status !== 401 && e.error.mensaje) {
           this.router.navigate(['/deudas']);
+          console.error(e.error.mensaje);
+        }
+        return throwError(e);
+      })
+    );
+  }
+
+  procesarPago(pantalla1RequestModel: Pantalla1RequestModel): Observable<any> {
+    return this.http.put<any>(this.urlEndPoint + `/procesar-pago`, pantalla1RequestModel).pipe(
+      catchError(e => {
+        if (e.status === 400) {
+          return throwError(e);
+        }
+        if (e.error.mensaje) {
           console.error(e.error.mensaje);
         }
         return throwError(e);
