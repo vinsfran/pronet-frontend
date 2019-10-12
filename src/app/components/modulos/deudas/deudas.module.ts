@@ -7,7 +7,6 @@ import {PaginationModule} from '../widgets/pagination/pagination.module';
 import {DeudasRoutingModule} from './deudas-routing.module';
 import {DeudasComponent} from './deudas.component';
 import {DeudasListComponent} from './list/deudas-list.component';
-import {DeudasFormComponent} from './form/deudas-form.component';
 import {DeudasService} from '../../../services/deudas.service';
 
 @NgModule({
@@ -21,7 +20,6 @@ import {DeudasService} from '../../../services/deudas.service';
   ],
   declarations: [
     DeudasComponent,
-    DeudasFormComponent,
     DeudasListComponent
   ],
   providers: [

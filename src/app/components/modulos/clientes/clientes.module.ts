@@ -7,7 +7,6 @@ import {PaginationModule} from '../widgets/pagination/pagination.module';
 import {ClientesRoutingModule} from './clientes-routing.module';
 import {ClientesComponent} from './clientes.component';
 import {ClientesListComponent} from './list/clientes-list.component';
-import {ClientesFormComponent} from './form/clientes-form.component';
 import {ClientesService} from '../../../services/clientes.service';
 
 @NgModule({
@@ -21,7 +20,6 @@ import {ClientesService} from '../../../services/clientes.service';
   ],
   declarations: [
     ClientesComponent,
-    ClientesFormComponent,
     ClientesListComponent
   ],
   providers: [

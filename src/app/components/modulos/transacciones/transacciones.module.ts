@@ -7,7 +7,6 @@ import {PaginationModule} from '../widgets/pagination/pagination.module';
 import {TransaccionesRoutingModule} from './transacciones-routing.module';
 import {TransaccionesComponent} from './transacciones.component';
 import {TransaccionesListComponent} from './list/transacciones-list.component';
-import {TransaccionesFormComponent} from './form/transacciones-form.component';
 import {TransaccionesService} from '../../../services/transacciones.service';
 
 @NgModule({
@@ -21,7 +20,6 @@ import {TransaccionesService} from '../../../services/transacciones.service';
   ],
   declarations: [
     TransaccionesComponent,
-    TransaccionesFormComponent,
     TransaccionesListComponent
   ],
   providers: [
